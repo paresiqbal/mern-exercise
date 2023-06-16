@@ -4,8 +4,9 @@ import express from "express";
 // Env
 import dotenv from "dotenv";
 
-// Express App
+// Config
 const app = express();
+dotenv.config();
 
 // Routes
 app.get("/", (req, res) => {
