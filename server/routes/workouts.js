@@ -2,7 +2,7 @@
 import express from "express";
 
 // Models
-import { WorkoutsModel } from "../models/Workout.js";
+import { WorkoutsModel } from "../models/WorkoutModel.js";
 
 const router = express.Router();
 
