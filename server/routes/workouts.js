@@ -6,9 +6,11 @@ import { WorkoutsModel } from "../models/WorkoutModel.js";
 
 // Controllers
 import {
+  createWorkout,
   getAllWorkouts,
   getIndividualWorkout,
-  createWorkout,
+  deleteWorkout,
+  updateWorkout,
 } from "../controllers/workoutsController.js";
 
 const router = express.Router();
@@ -23,13 +25,9 @@ router.get("/:id", getIndividualWorkout);
 router.post("/", createWorkout);
 
 // delte a workout
-router.delete("/:id", (req, res) => {
-  res.json({ message: "Delete a workout" });
-});
+router.delete("/:id", deleteWorkout);
 
 // update a workout
-router.patch("/:id", (req, res) => {
-  res.json({ message: "Update a workout" });
-});
+router.patch("/:id", updateWorkout);
 
 export { router as workoutsRouter };
