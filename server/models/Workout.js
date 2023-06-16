@@ -3,8 +3,13 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const workoutsSchema = new Schema({
-  title: { type: String, require: true },
-  reps: { type: Number, require: true },
-  load: { type: Number, require: true },
-});
+const WorkoutsSchema = new Schema(
+  {
+    title: { type: String, require: true },
+    reps: { type: Number, require: true },
+    load: { type: Number, require: true },
+  },
+  { timestamps: true }
+);
+
+export const WorkoutsModel = mongoose.model("workouts", WorkoutsSchema);
