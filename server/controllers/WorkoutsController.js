@@ -1,3 +1,6 @@
+// Library
+import mongoose from "mongoose";
+
 // Models
 import { WorkoutsModel } from "../models/WorkoutModel.js";
 
@@ -11,8 +14,13 @@ const getAllWorkouts = async (req, res) => {
 // get individual workout
 const getIndividualWorkout = async (req, res) => {
   const { id } = req.params;
-  const workout = await WorkoutsModel.findById(id);
 
+  // check valid id
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such workout" });
+  }
+
+  const workout = await WorkoutsModel.findById(id);
   if (!workout) {
     return res.status(404).json({ error: "No such workout" });
   }
