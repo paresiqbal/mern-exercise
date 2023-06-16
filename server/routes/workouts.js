@@ -5,19 +5,19 @@ import express from "express";
 import { WorkoutsModel } from "../models/WorkoutModel.js";
 
 // Controllers
-import { createWorkout } from "../controllers/workoutsController.js";
+import {
+  getAllWorkouts,
+  getIndividualWorkout,
+  createWorkout,
+} from "../controllers/workoutsController.js";
 
 const router = express.Router();
 
 // get all workouts
-router.get("/", (req, res) => {
-  res.json({ message: "Display all workouts" });
-});
+router.get("/", getAllWorkouts);
 
 // get individual workout
-router.get("/:id", (req, res) => {
-  res.json({ message: "Get individual workout" });
-});
+router.get("/:id", getIndividualWorkout);
 
 // post a new workout
 router.post("/", createWorkout);
