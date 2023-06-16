@@ -1,17 +1,24 @@
-// Express
+// Library
 import express from "express";
-
-// Env
 import dotenv from "dotenv";
 
-// Config
+// Route
+import { workoutsRouter } from "../routes/Workouts.js";
+
+// config
 const app = express();
 dotenv.config();
 
-// Routes
-app.get("/", (req, res) => {
-  res.json({ message: "Hello World" });
+// middleware
+app.use(express.json());
+
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
 });
 
-// Listen to port
+// router
+app.use("/workouts", workoutsRouter);
+
+// listen to port
 app.listen(process.env.PORT, () => console.log("Server Running ..."));
