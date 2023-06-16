@@ -1,12 +1,16 @@
+// Express
 import express from "express";
+
+// Env
+import dotenv from "dotenv";
 
 // Express App
 const app = express();
 
-// Route
+// Routes
 app.get("/", (req, res) => {
   res.json({ message: "Hello World" });
 });
 
 // Listen to port
-app.listen(3001, () => console.log("Server Running ..."));
+app.listen(process.env.PORT, () => console.log("Server Running ..."));
