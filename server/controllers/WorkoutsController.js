@@ -48,7 +48,7 @@ const updateWorkout = async (req, res) => {
 
   // check valid id
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such workout" });
+    return res.status(404).json({ error: "No such workout 😢" });
   }
 
   // find workout base from id and all of the model schema
