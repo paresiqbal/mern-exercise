@@ -28,9 +28,10 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="p-10">
+    <div className="p-8 flex flex-col gap-10">
       <WorkoutForm />
       <div>
+        <h1 className="text-3xl font-bold py-2">Workout's</h1>
         {workouts &&
           workouts.map((workout) => (
             <WorkoutDetails key={workout._id} workout={workout} />

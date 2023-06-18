@@ -37,39 +37,54 @@ export default function WorkoutForm() {
   };
 
   return (
-    <form onSubmit={submitForm}>
-      <h3>Add new Workout</h3>
-      <div>
-        <label htmlFor="title">Exercise Titile:</label>
+    <form onSubmit={submitForm} className="flex flex-col gap-2">
+      <h3 className="text-3xl font-bold py-2">Add New Workout</h3>
+      <div className="flex flex-col">
+        <label htmlFor="title" className="font-semibold">
+          Exercise Titile:
+        </label>
         <input
           type="text"
           name="title"
           id="title"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
+          className="border hover:outline-teal-500 rounded-md"
         />
       </div>
-      <div>
-        <label htmlFor="load">Load (Kg):</label>
+      <div className="flex flex-col">
+        <label htmlFor="load" className="font-semibold">
+          Load (Kg):
+        </label>
         <input
           type="number"
           name="load"
           id="load"
           onChange={(e) => setLoad(e.target.value)}
           value={load}
+          className="border hover:outline-teal-500 rounded-md"
         />
       </div>
-      <div>
-        <label htmlFor="reps">Reps:</label>
+      <div className="flex flex-col">
+        <label htmlFor="reps" className="font-semibold">
+          Reps:
+        </label>
         <input
           type="number"
           name="reps"
           id="reps"
           onChange={(e) => setReps(e.target.value)}
           value={reps}
+          className="border hover:outline-teal-500 rounded-md"
         />
       </div>
-      <button type="submit">Add Workout</button>
+      <button
+        type="submit"
+        className="bg-teal-500 active:bg-teal-600 py-2 font-bold text-white rounded-md"
+      >
+        Add Workout
+      </button>
+      {error && <div>{error}</div>}
     </form>
   );
 }
