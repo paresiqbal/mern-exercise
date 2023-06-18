@@ -1,5 +1,8 @@
 // React
 import { useEffect, useState } from "react";
+import WorkoutDetails from "../components/WorkoutDetails";
+
+// Compoentns
 
 export default function Dashboard() {
   const [workouts, setWorkouts] = useState(null);
@@ -27,7 +30,9 @@ export default function Dashboard() {
     <div className="p-10">
       <div>
         {workouts &&
-          workouts.map((workout) => <p key={workout._id}>{workout.title}</p>)}
+          workouts.map((workout) => (
+            <WorkoutDetails key={workout._id} workout={workout} />
+          ))}
       </div>
     </div>
   );
