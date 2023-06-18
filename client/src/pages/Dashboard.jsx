@@ -1,7 +1,7 @@
 export default function Dashboard() {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className="p-10">
+      <h1 className="text-center text-3xl">Hello World</h1>
     </div>
   );
 }
