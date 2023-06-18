@@ -6,7 +6,7 @@ import Nav from "../components/Nav";
 
 export default function MainLayout() {
   return (
-    <div>
+    <div className="text-gray-800">
       <main>
         <Nav />
         <Outlet />
