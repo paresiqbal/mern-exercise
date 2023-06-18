@@ -32,6 +32,23 @@ const getIndividualWorkout = async (req, res) => {
 const createWorkout = async (req, res) => {
   const { title, load, reps } = req.body;
 
+  // let empetyFields = [];
+
+  // if (!title) {
+  //   empetyFields.push("title");
+  // }
+  // if (!load) {
+  //   empetyFields.push("load");
+  // }
+  // if (!reps) {
+  //   empetyFields.push("reps");
+  // }
+  // if (empetyFields.length > 0) {
+  //   return res
+  //     .status(400)
+  //     .json({ error: "Please fill in all the field", empetyFields });
+  // }
+
   // add new doc to db
   try {
     const workout = await WorkoutsModel.create({ title, load, reps });

@@ -7,6 +7,7 @@ export default function WorkoutForm() {
   const [reps, setReps] = useState("");
 
   const [error, setError] = useState(null);
+  const [empetyFields, setEmpetyFields] = useState([]);
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -26,6 +27,7 @@ export default function WorkoutForm() {
     // check the status
     if (!response) {
       setError(json.error);
+      setEmpetyFields(json.empetyFields);
     }
     if (response.ok) {
       // set all form to empety
@@ -33,6 +35,7 @@ export default function WorkoutForm() {
       setLoad("");
       setReps("");
       setError(null);
+      setEmpetyFields(null);
       console.log("New Workout addded");
     }
   };
@@ -50,7 +53,7 @@ export default function WorkoutForm() {
           id="title"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
-          className="border hover:outline-teal-500 rounded-md"
+          className={`border hover:outline-teal-500 rounded-md`}
         />
       </div>
       <div className="flex flex-col">
