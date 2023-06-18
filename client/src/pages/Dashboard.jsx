@@ -1,9 +1,9 @@
 // React
 import { useEffect, useState } from "react";
-import WorkoutDetails from "../components/WorkoutDetails";
-import WorkoutForm from "../components/WorkoutForm";
 
 // Compoentns
+import WorkoutDetails from "../components/WorkoutDetails";
+import WorkoutForm from "../components/WorkoutForm";
 
 export default function Dashboard() {
   const [workouts, setWorkouts] = useState(null);
