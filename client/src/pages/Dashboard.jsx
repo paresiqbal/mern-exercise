@@ -1,6 +1,7 @@
 // React
 import { useEffect, useState } from "react";
 import WorkoutDetails from "../components/WorkoutDetails";
+import WorkoutForm from "../components/WorkoutForm";
 
 // Compoentns
 
@@ -28,6 +29,7 @@ export default function Dashboard() {
 
   return (
     <div className="p-10">
+      <WorkoutForm />
       <div>
         {workouts &&
           workouts.map((workout) => (
