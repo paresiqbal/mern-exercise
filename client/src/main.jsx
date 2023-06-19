@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 
 // Context
-import { WorkoutsContextProvider } from "./context/WorkoutContext";
+import { WorkoutsContext } from "./context/WorkoutsContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

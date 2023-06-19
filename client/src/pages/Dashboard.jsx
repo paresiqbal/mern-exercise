@@ -24,7 +24,6 @@ export default function Dashboard() {
         }
 
         const json = await response.json();
-        setWorkouts(json);
       } catch (error) {
         console.error("Error fetching workouts:", error);
       }
