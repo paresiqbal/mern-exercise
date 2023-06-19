@@ -8,8 +8,8 @@ import { WorkoutsContextProvider } from "./context/WorkoutsContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <WorkoutsContextProvider>
-      <App />
-    </WorkoutsContextProvider>
+    {/* <WorkoutsContextProvider> */}
+    <App />
+    {/* </WorkoutsContextProvider> */}
   </React.StrictMode>
 );

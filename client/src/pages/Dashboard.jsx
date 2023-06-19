@@ -6,12 +6,9 @@ import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 
 // Context
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 export default function Dashboard() {
-  // const [workouts, setWorkouts] = useState(null);
-
-  const { workouts, dispatch } = useWorkoutsContext();
+  const [workouts, setWorkouts] = useState(null);
 
   useEffect(() => {
     const fetchWorkouts = async () => {
@@ -19,11 +16,11 @@ export default function Dashboard() {
         const response = await fetch("http://localhost:3001/workouts");
 
         if (!response.ok) {
-          // throw new Error(response.statusText);
-          dispatch({ type: "SET_WORKOUTS", payload: json });
+          throw new Error(response.statusText);
         }
 
         const json = await response.json();
+        setWorkouts(json);
       } catch (error) {
         console.error("Error fetching workouts:", error);
       }
