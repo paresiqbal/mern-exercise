@@ -1,7 +1,7 @@
 // Library
 import express from "express";
 
-import { signUser, loginUser } from "../controllers/UserController";
+import { signUser, loginUser } from "../controllers/UserController.js";
 
 // router setup
 const router = express.Router();
