@@ -1,6 +1,6 @@
 // Library
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+import bcrypt, { hash } from "bcrypt";
 import validator from "validator";
 
 const Schema = mongoose.Schema;
@@ -35,6 +35,28 @@ UserSchema.statics.signup = async function (email, password) {
 
   // save to db
   const user = await this.create({ email, password: hash });
+
+  return user;
+};
+
+// static login method
+UserSchema.statics.login = async function (email, password) {
+  // validation
+  if (!email || !password) {
+    throw Error("All fields must be filled");
+  }
+
+  const user = await this.findOne({ email });
+
+  if (!user) {
+    throw Error("Incorrect email");
+  }
+
+  // check match password
+  const match = await bcrypt.compare(password, user.password);
+  if (!match) {
+    throw Error("Incorrect password");
+  }
 
   return user;
 };
