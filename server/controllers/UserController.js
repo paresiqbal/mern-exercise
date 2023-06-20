@@ -1,5 +1,12 @@
 import { UserModel } from "../models/UserModel.js";
 
+// Library
+import jwt from "jsonwebtoken";
+
+const createToken = (_id) => {
+  jwt.sign({ _id });
+};
+
 // login user
 const loginUser = async (req, res) => {
   res.json({ message: "Login success" });
