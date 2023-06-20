@@ -6,6 +6,7 @@ import cors from "cors";
 
 // Route
 import { workoutsRouter } from "../routes/Workouts.js";
+import { userRouter } from "../routes/user.js";
 
 // config
 const app = express();
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 
 // router
 app.use("/workouts", workoutsRouter);
+app.use("/user", userRouter);
 
 // connect to mongo db
 mongoose
