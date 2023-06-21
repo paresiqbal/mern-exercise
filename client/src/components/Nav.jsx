@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 
 // hooks
 import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 export default function Nav() {
   const { logout } = useLogout();
+  const { user } = useAuthContext();
 
   const handleLogout = () => {
     logout();
@@ -16,13 +18,18 @@ export default function Nav() {
         Workout
       </Link>
       <section className="flex gap-4">
-        <div className="flex gap-4">
-          <Link to={"/signup"}>Sign Up</Link>
-          <Link to={"/login"}>login</Link>
-        </div>
-        <div>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
+        {!user && (
+          <div className="flex gap-4">
+            <Link to={"/signup"}>Sign Up</Link>
+            <Link to={"/login"}>login</Link>
+          </div>
+        )}
+        {user && (
+          <div>
+            <span>{user.email}</span>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+        )}
       </section>
     </nav>
   );
