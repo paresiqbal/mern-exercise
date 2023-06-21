@@ -41,6 +41,8 @@ export default function Signup() {
           type="password"
           name="password"
           id="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
           className="p-2 rounded-md text-gray-600"
         />
       </section>
