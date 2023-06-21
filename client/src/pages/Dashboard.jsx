@@ -6,14 +6,20 @@ import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 
 // Context
+import { useAuthContext } from "../hooks/useAuthContext";
 
 export default function Dashboard() {
   const [workouts, setWorkouts] = useState(null);
+  const { user } = useAuthContext();
 
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await fetch("http://localhost:3001/workouts");
+        const response = await fetch("http://localhost:3001/workouts", {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        });
 
         if (!response.ok) {
           throw new Error(response.statusText);
@@ -26,8 +32,10 @@ export default function Dashboard() {
       }
     };
 
-    fetchWorkouts();
-  }, []);
+    if (user) {
+      fetchWorkouts();
+    }
+  }, [user]);
 
   return (
     <div className="p-8 flex flex-col gap-10">
