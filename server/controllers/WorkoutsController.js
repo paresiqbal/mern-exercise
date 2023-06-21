@@ -51,7 +51,8 @@ const createWorkout = async (req, res) => {
 
   // add new doc to db
   try {
-    const workout = await WorkoutsModel.create({ title, load, reps });
+    const user_id = req.user_id;
+    const workout = await WorkoutsModel.create({ title, load, reps, user_id });
 
     res.status(200).json(workout);
   } catch (error) {
