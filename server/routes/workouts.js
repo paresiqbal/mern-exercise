@@ -4,6 +4,9 @@ import express from "express";
 // Models
 import { WorkoutsModel } from "../models/WorkoutModel.js";
 
+// Middleware
+import { requireAuth } from "../middleware/requireAuth.js";
+
 // Controllers
 import {
   createWorkout,
@@ -14,6 +17,7 @@ import {
 } from "../controllers/workoutsController.js";
 
 const router = express.Router();
+router.use(requireAuth);
 
 // get all workouts
 router.get("/", getAllWorkouts);
