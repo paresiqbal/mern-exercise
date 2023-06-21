@@ -1,5 +1,12 @@
 // React Router Dom
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
+
+// Context
+import { useAuthContext } from "./hooks/useAuthContext";
 
 // Pages
 import MainLayout from "./layout/MainLayout";
@@ -7,6 +14,9 @@ import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+
+const { user } = useAuthContext();
+const navigate = Navigate();
 
 // router setup
 const router = createBrowserRouter([
