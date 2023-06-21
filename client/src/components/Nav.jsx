@@ -1,15 +1,29 @@
 // Rrd
 import { Link } from "react-router-dom";
 
+// hooks
+import { useLogout } from "../hooks/useLogout";
+
 export default function Nav() {
+  const { logout } = useLogout();
+
+  const handleLogout = () => {
+    logout();
+  };
   return (
-    <div className="flex p-6 shadow-md justify-between items-center">
+    <nav className="flex p-6 shadow-md justify-between items-center">
       <Link to={"/"} className="font-bold text-xl">
         Workout
       </Link>
-      <section className="outline outline-teal-500 p-2 rounded-md hover:bg-teal-400 font-bold hover:text-white">
-        <Link to={"/signup"}>Sign Up</Link>
+      <section className="flex gap-4">
+        <div className="flex gap-4">
+          <Link to={"/signup"}>Sign Up</Link>
+          <Link to={"/login"}>login</Link>
+        </div>
+        <div>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
       </section>
-    </div>
+    </nav>
   );
 }
