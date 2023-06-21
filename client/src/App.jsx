@@ -6,6 +6,7 @@ import MainLayout from "./layout/MainLayout";
 import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 // router setup
 const router = createBrowserRouter([
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
         errorElement: <Error />,
       },
     ],
