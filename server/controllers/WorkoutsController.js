@@ -6,7 +6,11 @@ import { WorkoutsModel } from "../models/WorkoutModel.js";
 
 // get all workouts
 const getAllWorkouts = async (req, res) => {
-  const workouts = await WorkoutsModel.find({}).sort({ createdAt: -1 });
+  const user_id = req.user._id;
+
+  const workouts = await WorkoutsModel.find({ user_id }).sort({
+    createdAt: -1,
+  });
 
   res.status(200).json(workouts);
 };
